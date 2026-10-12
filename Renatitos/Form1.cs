@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Renatitos
 {
@@ -31,7 +32,17 @@ namespace Renatitos
 
         private void btniniciarsecion_Click(object sender, EventArgs e)
         {
-            Form2 pantallaPrincipal = new Form2();
+            // Validar si el campo de usuario o contraseña están vacíos o contienen solo espacios
+            if (string.IsNullOrWhiteSpace(txtboxusuario.Text) || string.IsNullOrWhiteSpace(txtcontra.Text))
+            {
+                MessageBox.Show("Debe ingresar usuario y contraseña.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Detiene la ejecución para que no abra Form2
+            }
+            // Limpiar las cajas de texto para cuando el usuario regrese
+            txtboxusuario.Clear();
+            txtcontra.Clear();
+            // Si ambos campos están completos, abre la pantalla principal
+            Form2 pantallaPrincipal = new Form2(this);
             pantallaPrincipal.Show();
             this.Hide();
         }
@@ -39,6 +50,11 @@ namespace Renatitos
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtcontra_TextChanged(object sender, EventArgs e)
+        {
+            txtcontra.PasswordChar = '*';
         }
     }
 }

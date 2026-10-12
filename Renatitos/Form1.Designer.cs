@@ -36,16 +36,16 @@
             pictureBox1 = new PictureBox();
             panelsiguiente = new Panel();
             btniniciarsecion = new Button();
-            textBox2 = new TextBox();
+            txtcontra = new TextBox();
             txtboxusuario = new TextBox();
             txtcontraseño = new Label();
             txtusuario = new Label();
             pictureBox2 = new PictureBox();
             txtinventario = new Label();
             panelinicio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelsiguiente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelinicio
@@ -104,8 +104,9 @@
             // 
             // panelsiguiente
             // 
+            panelsiguiente.BackColor = Color.Transparent;
             panelsiguiente.Controls.Add(btniniciarsecion);
-            panelsiguiente.Controls.Add(textBox2);
+            panelsiguiente.Controls.Add(txtcontra);
             panelsiguiente.Controls.Add(txtboxusuario);
             panelsiguiente.Controls.Add(txtcontraseño);
             panelsiguiente.Controls.Add(txtusuario);
@@ -127,12 +128,13 @@
             btniniciarsecion.UseVisualStyleBackColor = true;
             btniniciarsecion.Click += btniniciarsecion_Click;
             // 
-            // textBox2
+            // txtcontra
             // 
-            textBox2.Location = new Point(176, 239);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 5;
+            txtcontra.Location = new Point(176, 239);
+            txtcontra.Name = "txtcontra";
+            txtcontra.Size = new Size(100, 23);
+            txtcontra.TabIndex = 5;
+            txtcontra.TextChanged += txtcontra_TextChanged;
             // 
             // txtboxusuario
             // 
@@ -194,10 +196,10 @@
             Load += Form1_Load;
             panelinicio.ResumeLayout(false);
             panelinicio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelsiguiente.ResumeLayout(false);
             panelsiguiente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -211,7 +213,7 @@
         private Panel panelsiguiente;
         private PictureBox pictureBox2;
         private Label txtinventario;
-        private TextBox textBox2;
+        private TextBox txtcontra;
         private TextBox txtboxusuario;
         private Label txtcontraseño;
         private Label txtusuario;
